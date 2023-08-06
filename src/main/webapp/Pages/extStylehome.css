@@ -1,0 +1,20 @@
+	
+
+h1{
+	font-family: sans-serif;
+}
+h2{
+	font-family: sans-serif;
+}
+
+.btn{
+	background-color: #d6b17c;
+	padding: 5px;
+	border: thin;
+	
+}
+a{
+	text-decoration: none;
+	font-family: monospace;
+	color: black;
+}
