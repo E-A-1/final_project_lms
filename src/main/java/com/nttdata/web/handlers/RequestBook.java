@@ -38,12 +38,12 @@ public class RequestBook implements HttpRequestHandler {
 			BookRequest bookRequest = new BookRequest(randomNumber, userId, bookId, "open");
 			BookRequestDao.addNewBookRequest(bookRequest);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("..\\Pages\\successbook.jsp");
-			request.setAttribute("success", "Book succesfully registered with the system");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("..\\Pages\\SuccessStudent.jsp");
+			request.setAttribute("message", "Book succesfully registered with the system");
 
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
 			request.setAttribute("Err", e.getMessage());
 			dispatcher.forward(request, response);
 		}

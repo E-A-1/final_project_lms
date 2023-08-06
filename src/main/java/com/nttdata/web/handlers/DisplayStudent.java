@@ -37,13 +37,13 @@ public class DisplayStudent implements HttpRequestHandler {
 				}
 
 				else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 					request.setAttribute("Err", "error listing students...");
 					dispatcher.forward(request, response);
 				}
 
 			} catch (Exception e) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 				request.setAttribute("Err", e.getMessage());
 				dispatcher.forward(request, response);
 			}

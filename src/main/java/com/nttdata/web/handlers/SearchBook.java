@@ -24,7 +24,7 @@ public class SearchBook implements HttpRequestHandler {
 
 		try {
 
-			List<BookDetails> list = dao.searchBook(request.getParameter("searchTerm"));
+			List<BookDetails> list = dao.searchBook(request.getParameter("searchTerm"));//javabook=searchTearm
 
 			if (list.size() > 0) {
 				RequestDispatcher dispatcher =request.getRequestDispatcher("DisplayBookToStudent.jsp");
@@ -33,13 +33,13 @@ public class SearchBook implements HttpRequestHandler {
 			}
 
 			else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
 				request.setAttribute("Err", "no books found...");
 				dispatcher.forward(request, response);
 			}
 
 		} catch (Exception e) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
 			request.setAttribute("Err", e.getMessage());
 			dispatcher.forward(request, response);
 		}

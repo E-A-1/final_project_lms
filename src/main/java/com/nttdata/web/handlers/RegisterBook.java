@@ -38,24 +38,24 @@ public class RegisterBook implements HttpRequestHandler {
 
 		int result;
 		try {
-			result = dao.createNewBook(book);
+			result = dao.createNewBook(book);//returns 1
 
 			if (result == 1) {
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("..\\Pages\\successbook.jsp");
-				request.setAttribute("success", "Book succesfully registered with the system");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("..\\Pages\\SuccessAdmin.jsp");
+				request.setAttribute("message", "Book succesfully registered with the system");
 				request.setAttribute("details", book);
 				dispatcher.forward(request, response);
 			}
 
 			else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 				request.setAttribute("Err", "error registering book");
 				dispatcher.forward(request, response);
 			}
 
 		} catch (DAOAppException | DBConnectionException e) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 			request.setAttribute("Err", e.getMessage());
 			dispatcher.forward(request, response);
 		}

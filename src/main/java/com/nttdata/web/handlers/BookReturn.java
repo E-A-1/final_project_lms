@@ -28,12 +28,12 @@ public class BookReturn implements HttpRequestHandler {
 				
 			int requestId=	Integer.parseInt(request.getParameter("requestId"));
         dao.returnBook(requestId);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("SuccessStudent.jsp");
 		request.setAttribute("message","Successfully Returned the Book!" );
 		dispatcher.forward(request, response);
 				
 			} catch (Exception e) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
 				request.setAttribute("Err", e.getMessage());
 				dispatcher.forward(request, response);
 			}

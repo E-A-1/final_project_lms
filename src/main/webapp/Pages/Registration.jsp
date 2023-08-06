@@ -2,68 +2,99 @@
 <html>
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Student Registration</title>
-    <style>
- input[type="submit"] {
-        background-color: pink;
-        border: none;
-        color: black;
-        padding: 8px 16px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="extStylehome.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Registration</title>
+<style>
+.reg_form {
+  background-image: url(https://img.freepik.com/free-vector/watercolor-abstract-purple-background_23-2149120778.jpg);
+  background-size: cover;
+  z-index: -1;
+}
+.input_container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.input_style {
+  padding: 10px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  width: 100%;
+}
+.card_style {
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 30px;
+  background-color: white;
+  min-width: 500px;
+}
+.label_style {
+  font-size: 16px;
+  font-family: sans-serif;
+}
 
-
-    </style>
+</style>
 </head>
 
-<body style="box-sizing: border-box;display: flex;justify-content: space-evenly;min-height: 100vh;margin: 0 auto;">
-    <div style="width: 50%;background-color: black;">
-   
-    </div>
-    <div style="width:50%;display: flex;justify-content: center;">
-       
-        <form name="Registration"  style="border-bottom: 2px solid black"   action="AdminRegistration.do" >
-            <div style="padding: 20px;font-weight: bold;font-size: 30px;">Student Registration Form
-            </div>
-            <div style="padding: 10px;">
-                <label style="font-size:20px ;">Id :</label>
-                <input type="text" name="adminId" placeholder="Enter Id" required />
-            </div>
+<body
+	style="box-sizing: border-box; display: flex; justify-content: space-evenly; min-height: 100vh; margin: 0 auto;"
+	class="reg_form">
 
-            <div style="padding: 10px;">
-                <label style="font-size:20px ;">Password :</label>
-                <input type="Password" name="password" placeholder="Enter password" required/>
-            </div>
+	<div
+		style="width: 100%; display: flex; justify-content: center; align-items: center;">
+		<div class="card_style" style="z-index: 2;">
+			<form name="Registration" action="AdminRegistration.do">
 
-            <div style="padding: 10px;">
-                <label style="font-size:20px ;">Name :</label>
-                <input type="text" name="name" placeholder="Enter  name" required/>
-            </div>
-            <div style="padding: 10px;">
-                <label style="font-size:20px ;">Email :</label>
-                <input type="text" name="email" placeholder="Enter email" required/>
-            </div>
-            <div style="padding: 10px;">
-                <label style="font-size:20px ;">Contact No :</label>
-                <input type="text" name="contactNo" placeholder="Enter contact No" required/>
-            
-            <div style="padding: 10px;">
-                <label style="font-size:20px ;">Role:</label>
-                <input type="radio" value ="admin" name="role" required>Admin</input>
-                <input type="radio" value ="student" name="role">Student</input>
-               
-            </div>
+				<div
+					style="padding-bottom: 20px; font-weight: bold; font-size: 25px;"
+					class="center_align">Registration Form</div>
+				<label class="label_style"> Id </label>
+				<div class="input_container">
+					<input type="text" class="input_style" name="id"
+						placeholder="Enter Id" required />
+				</div>
+				<label class="label_style ">Password </label>
+				<div class="input_container">
+					<input type="Password" class="input_style" name="password"
+						placeholder="Enter password" required />
+				</div>
+				<label class="label_style">Name </label>
+				<div class="input_container">
+					<input type="text" class="input_style" name="name"
+						placeholder="Enter name" required />
+				</div>
+				<label class="label_style">Email </label>
+				<div class="input_container">
+					<input type="text" class="input_style" name="email"
+						placeholder="Enter email" required />
+				</div>
+				<label class="label_style">Contact No </label>
+				<div class="input_container">
+					<input type="text" class="input_style" name="contactNo"
+						placeholder="Enter contact No" required />
+				</div>
+				<label class="label_style">Role</label>
+				<div class="input_container">
+					<span style="padding-left: 5px; padding-right: 5px;"> <input
+						type="radio" value="admin" name="role" required> <span
+						style="padding: 5px">Admin</span> </input>
+					</span> <input type="radio" value="student" name="role"> <span
+						style="padding: 5px">Student</span> </input>
+				</div>
+				<div>
+					<br>
 
-            
-
-            <div style="display: flex;justify-content:end;padding: 10px;">
-                <input type="Submit" name="Register" value="Register">
-            </div>
-        </form>
-    </div>
+					<div class="center_align">
+						<button type="submit" class="btn"
+							style="width: 100%; background-color: rgb(156, 39, 176); color: white; padding: 10px;">Register</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 
 </html>

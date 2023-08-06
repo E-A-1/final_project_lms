@@ -14,57 +14,133 @@ JSP--java servlet page it is used to create web application -->
 <title>Display Books</title>
 <link rel="stylesheet" href="extStylehome.css">
 
+
+<style>
+.header_button {
+	padding: 2px 5px;
+	background-color: white;
+	color: rgb(156, 39, 176);
+	font-family: "Times New Roman";
+	font-weight: bold;
+}
+.header_style {
+  background-color: rgb(156, 39, 176);
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: medium;
+  padding: 0px 7px;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+  font-family: monospace;
+}
+.reg_form {
+  background-image: url(https://img.freepik.com/free-vector/watercolor-abstract-purple-background_23-2149120778.jpg);
+  background-size: cover;
+  z-index: -1;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.center_align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    body
+            {
+   
+    margin: 0;
+      padding: 0;
+        }
+   
+    </style>
 </head>
+<body class="reg_form">
+    <header class="header_style">  
+        <span>
+        <h3>  LIBRARY MANAGEMENT SYSTEM
+            <span style="padding: 0 15px;"><a href="..\Pages\adminhome.jsp" class="header_button"> Home</a>  
 
+        </h3>
+    </span>
+        <span style="padding: 0 15px;"><a  href="..\Pages\index.jsp" class="header_button"> Sign Out</a>  
 
-<body>
+    </span>
+    </header>
 <div id=form>
-
+<!--
 <a href="..\Pages\index.jsp" style="color:#131e57" >Home </a>
-<a href="..\Pages\StudentLogin.jsp"  style="float:right ">Log Out</a>
+<a href="..\Pages\StudentLogin.jsp"  style="float:right ">Log Out</a> -->
 <center>
-<h1 style="color:#762727"> <strong><i> All Books </strong></i></h1>
+<h1 > <strong><i> All Books  &#128214;</strong></i></h1>
 </center>
-<hr color="red">
 <center>
 
 
-<TABLE BORDER="1">
+<TABLE class="styled-table">
       <TR>
-      <TH style="color:#f0fa23">Book Name</TH>
-      <TH style="color:#f0fa23">Isbn</TH>
-      <TH style="color:#f0fa23">Author</TH>
-      <TH style="color:#f0fa23">Publisher</TH>
-      <TH style="color:#f0fa23">Edition</TH>
-      <TH style="color:#f0fa23">Price</TH>
-      <TH style="color:#f0fa23">Quantity</TH>
-<TH style="color:#f0fa23">Category</TH>
+      <TH >Book Name</TH>
+      <TH >Isbn</TH>
+      <TH >Author</TH>
+      <TH >Publisher</TH>
+      <TH >Edition</TH>
+      <TH >Price</TH>
+      <TH >Quantity</TH>
+<TH >Category</TH>
       </TR>
       <%
 for(BookDetails book:((ArrayList<BookDetails>)request.getAttribute("bookList")))
 {
 %>
+
+
+
 <tr>
-<td> <%=book.getBookName() %></td><td><%=book.getIsbn()%></td> <td><%=book.getAuthor()%></td>
-<td><%=book.getPublisher() %></td><td><%=book.getEdition() %></td><td><%=book.getPrice() %></td><td><%=book.getQuantity() %></td>
-<td><%=book.getCategoryName() %></td>
-<td> <a href="UpdateBook.jsp?isbn=<%=book.getIsbn() %>&quantity=<%=book.getQuantity() %>&price=<%=book.getPrice()%>"> Update</a>    </td>
-<td> <a href="DeleteBook.jsp?isbn=<%=book.getIsbn() %>">Delete</a></td>
-</tr>
-<% } %>
-<%--       <% while(rs.next()){ %> --%>
-<!--       <TR> -->
-<%--        <TD style="color:#060c2e"> <%= rs.getString(1) %></TD> --%>
-<%--        <TD style="color:#060c2e"> <%= rs.getInt(2) %></TD> --%>
-<%--        <TD style="color:#060c2e"> <%= rs.getString(3) %></TD> --%>
-<%--        <TD style="color:#060c2e"> <%= rs.getString(4) %></TD> --%>
-<%--        <TD style="color:#060c2e"> <%= rs.getString(5) %></TD> --%>
-<%--        <TD style="color:#060c2e"> <%= rs.getInt(6) %></TD> --%>
-<%--        <TD style="color:#060c2e"> <%= rs.getInt(7) %></TD> --%>
-<!--       </TR> -->
-<%--       <% } %> --%>
+    <td> <%=book.getBookName() %></td><td><%=book.getIsbn()%></td> <td><%=book.getAuthor()%></td>
+    <td><%=book.getPublisher() %></td><td><%=book.getEdition() %></td><td><%=book.getPrice() %></td><td><%=book.getQuantity() %></td>
+    <td><%=book.getCategoryName() %></td>
+    <td> <a href="UpdateBook.jsp?isbn=<%=book.getIsbn() %>&quantity=<%=book.getQuantity() %>&price=<%=book.getPrice()%>"> Update</a>    </td>
+    <td> <a href="DeleteBook.jsp?isbn=<%=book.getIsbn() %>">Delete</a></td>
+    </tr>
+<%}
+        %>
      </TABLE>
 </center>
 </div>
 </body>
 </html>
+

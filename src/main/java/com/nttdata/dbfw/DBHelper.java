@@ -100,40 +100,7 @@ public final class DBHelper {
 		return res;
 
 	}
-	public static Object executeProc(Connection conn, String sqlStmt,
-			ParamMapper inParam, OutTypeMapper outType, OutParamMapper outParam)
-			throws SQLException {
-		Object res = null;
-		if ((outType == null && outParam != null)
-				|| (outType != null && outParam == null)) {
-			return null;
-		}
-		CallableStatement callStmt = conn.prepareCall(sqlStmt);
-		inParam.mapParams(callStmt);
-
-		if (outType != null) {
-			outType.mapOutType(callStmt);
-		}
-		callStmt.execute();
-		if (outParam != null) {
-			res = outParam.mapOutParam(callStmt);
-		}
-
-		return res;
-
-	}
-	public static List unpackResultset(ResultSet rs, ResultMapper outMap)
-			throws DBFWException {
-		List resultList = new ArrayList();
-		try {
-			while (rs.next()) {
-				Object obj = outMap.mapRows(rs);
-				resultList.add(obj);
-			}
-		} catch (SQLException e) {
-			throw new DBFWException("Unpacking Resultset failed", e);
-		}
-		return resultList;
-	}
+	
+	
 
 }

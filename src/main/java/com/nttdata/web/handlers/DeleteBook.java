@@ -30,20 +30,20 @@ public class DeleteBook implements HttpRequestHandler {
 
 		try {
 			if (dao.deleteBook(isbn) != 0) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("..\\Pages\\DeleteSuccess.jsp");
-				request.setAttribute("success", "Deleted Success");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("..\\Pages\\SuccessAdmin.jsp");
+				request.setAttribute("message", "Deleted Book Successfully!");
 				dispatcher.forward(request, response);
 
 			} else {
 				System.out.println("not Deleted");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 				request.setAttribute("Err", "error deleting book..");
 				dispatcher.forward(request, response);
 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 			request.setAttribute("Err", e.getMessage());
 			dispatcher.forward(request, response);
 

@@ -27,14 +27,14 @@ public class DeleteStudent  implements HttpRequestHandler {
 			
 				try {
 					if(dao.deleteStudent(studentId)!=0) {
-								RequestDispatcher dispatcher=request.getRequestDispatcher("..\\Pages\\DeleteSuccess.jsp");
-								request.setAttribute("success", "Deleted Success");
+								RequestDispatcher dispatcher=request.getRequestDispatcher("..\\Pages\\SuccessAdmin.jsp");
+								request.setAttribute("message", "Deleted Student Successfully!");
 								dispatcher.forward(request, response);
 
 					}
 					else {
 						System.out.println("not Deleted");
-						RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+						RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 						request.setAttribute("Err", "error deleting book..");
 						dispatcher.forward(request, response);
 
@@ -42,7 +42,7 @@ public class DeleteStudent  implements HttpRequestHandler {
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-					RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 					request.setAttribute("Err", e.getMessage());
 					dispatcher.forward(request, response);
 

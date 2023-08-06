@@ -36,8 +36,8 @@ public class UpdatePrice implements HttpRequestHandler {
 				BookDetailsDao dao= new BookDetailsDao();
 				
 				if(dao.updateBookList(isbn, price, quantity)!=0) {
-							RequestDispatcher dispatcher=request.getRequestDispatcher("..\\Pages\\UpdatePriceSuccess.jsp");
-							request.setAttribute("success", "Update Price Success");
+							RequestDispatcher dispatcher=request.getRequestDispatcher("..\\Pages\\SuccessAdmin.jsp");
+							request.setAttribute("message", "Update Price Success");
 							dispatcher.forward(request, response);
 
 				}

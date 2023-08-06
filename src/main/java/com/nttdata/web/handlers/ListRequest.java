@@ -37,7 +37,7 @@ public class ListRequest implements HttpRequestHandler {
 				}
 
 				else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
 					request.setAttribute("Err", "No Open Request Book Available");
 					dispatcher.forward(request, response);
 				}
@@ -45,11 +45,11 @@ public class ListRequest implements HttpRequestHandler {
 				int requestId = Integer.parseInt(request.getParameter("requestId"));
 				int result = dao.confirmStatus("confirmed", requestId);
 				if (result == 0) {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 					request.setAttribute("Err", "Requested book is not available ...");
 					dispatcher.forward(request, response);
 				} else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("SuccessAdmin.jsp");
 					request.setAttribute("message", "Successfully Approved the Request");
 					dispatcher.forward(request, response);
 				}
@@ -66,7 +66,7 @@ public class ListRequest implements HttpRequestHandler {
 				}
 
 				else {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
 					request.setAttribute("Err", "No Books To Returned");
 					dispatcher.forward(request, response);
 				}

@@ -27,7 +27,7 @@ public class Registration implements HttpRequestHandler {
 
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		int adminId = Integer.parseInt(request.getParameter("adminId"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
@@ -38,14 +38,14 @@ public class Registration implements HttpRequestHandler {
 
 		try {
 			if (role.equals("admin")) {
-				Admin admin = new Admin(adminId, name, password, email, contactNo);
+				Admin admin = new Admin(id, name, password, email, contactNo);
 				AdminDao dao = new AdminDao();
 				flag = dao.insertAdmin(admin);
 
 				log.info(admin);
 
 			} else {
-				Student student = new Student(adminId, name, password, email, contactNo);
+				Student student = new Student(id, name, password, email, contactNo);
 				StudentDAO dao = new StudentDAO();
 				flag = dao.createNewStudent(student);
 			}
@@ -61,7 +61,7 @@ public class Registration implements HttpRequestHandler {
 				HttpSession session = request.getSession();
 
 				// Set the userId in the HttpSession
-				session.setAttribute("userId", adminId);
+				session.setAttribute("userId", id);
                 dispatcher.forward(request, response);
 
 			} else {

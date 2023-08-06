@@ -19,7 +19,7 @@ public class MyListenerClass implements ServletContextListener {
 			holder.dispose();
 			
 		} catch (DBConnectionException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
