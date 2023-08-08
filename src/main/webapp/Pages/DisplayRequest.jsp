@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@page import="java.util.List"%>
-<!-- script let tag used to write java code inside html  
-In JSP, java code can be written inside the jsp page using the scriptlet tag
-JSP--java servlet page it is used to create web application -->
 <%@page import="com.nttdata.domain.BookRequest"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
@@ -18,20 +15,23 @@ JSP--java servlet page it is used to create web application -->
 	font-family: "Times New Roman";
 	font-weight: bold;
 }
+
 .header_style {
-  background-color: rgb(156, 39, 176);
-  height: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  font-size: medium;
-  padding: 0px 7px;
-  justify-content: space-between;
+	background-color: rgb(156, 39, 176);
+	height: 50px;
+	color: white;
+	display: flex;
+	align-items: center;
+	font-size: medium;
+	padding: 0px 7px;
+	justify-content: space-between;
 }
+
 a {
-  text-decoration: none;
-  font-family: monospace;
+	text-decoration: none;
+	font-family: monospace;
 }
+
 .reg_form {
 	background-image:
 		url(https://img.freepik.com/free-vector/watercolor-abstract-purple-background_23-2149120778.jpg);
@@ -87,8 +87,6 @@ body {
 <link rel="stylesheet" href="extStylehome.css">
 
 </head>
-
-
 <body class="reg_form">
 	<header class="header_style">
 		<span>
@@ -96,43 +94,39 @@ body {
 				LIBRARY MANAGEMENT SYSTEM <span style="padding: 0 15px;"><a
 					href="..\Pages\adminhome.jsp" class="header_button"> Home</a>
 			</h3>
-		</span> <span style="padding: 0 15px;"><a
-			href="..\Pages\index.jsp" class="header_button"> Sign Out</a>
-
-		</span>
+		</span> <span style="padding: 0 15px;"><a href="..\Pages\index.jsp"
+			class="header_button"> Sign Out</a> </span>
 	</header>
-		<center>
-			<h1>
-				<strong><i> Open Request List </strong></i>
-			</h1>
-		</center>
-		<center>
+	<center>
+		<h1>
+			<strong><i> Open Request List </strong></i>
+		</h1>
+	</center>
+	<center>
 
 
-			<TABLE class="styled-table">
-				<TR>
-					<TH >Request Id</TH>
-					<TH >Book Id</TH>
-					<TH >Student ID</TH>
-					<TH >Status</TH>
-				</TR>
-				<%
+		<TABLE class="styled-table">
+			<TR>
+				<TH>Request Id</TH>
+				<TH>Book Id</TH>
+				<TH>Student ID</TH>
+				<TH>Status</TH>
+			</TR>
+			<%
 for(BookRequest book:((ArrayList<BookRequest>)request.getAttribute("bookRequestList")))
 {
 %>
-				<tr>
-					<td><%=book.getRequestId() %></td>
-					<td><%=book.getBookId()%></td>
-					<td><%=book.getStudentId()%></td>
-					<td><%=book.getStatus() %></td>
-					<td><a
-						href="ListRequest.do?action=confirm&requestId=<%=book.getRequestId() %>">Confirm</a></td>
-				</tr>
-				<% } %>
-
-
-			</TABLE>
-		</center>
+			<tr>
+				<td><%=book.getRequestId() %></td>
+				<td><%=book.getBookId()%></td>
+				<td><%=book.getStudentId()%></td>
+				<td><%=book.getStatus() %></td>
+				<td><a
+					href="ListRequest.do?action=confirm&requestId=<%=book.getRequestId() %>">Confirm</a></td>
+			</tr>
+			<% } %>
+		</TABLE>
+	</center>
 	</div>
 </body>
 </html>

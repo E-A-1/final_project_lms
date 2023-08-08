@@ -35,4 +35,9 @@ public class AdminDAOTest {
 		int result =obj.insertAdmin(obj1);
 		assertEquals(1, result);
 	}
+	@Test
+	public void testAssertDaoNotNull() throws DAOAppException, DBConnectionException, DBFWException {
+		AdminDao obj =new AdminDao();
+		assertNotNull(obj);
+	}
 }

@@ -62,7 +62,7 @@ public class StudentDAO {
 					preStmt.setString(2, student.getStudentName());
 					preStmt.setString(3, student.getPassword());
 					preStmt.setString(4, student.getEmail());
-					preStmt.setInt(5, student.getContactNumber());
+					preStmt.setLong(5, student.getContactNumber());
 
 				}
 
@@ -125,5 +125,32 @@ public class StudentDAO {
 		return studentDetails;
 
 	}
+	public boolean validateStudentUser(final int userId) throws DAOAppException {
+		ConnectionHolder ch = null;
+		Connection con = null;
+		List users = null;
+
+		ParamMapper paramMapper = new ParamMapper() {
+
+			@Override
+			public void mapParams(PreparedStatement pStmt) throws SQLException {
+				pStmt.setInt(1, userId);
+			}
+		};
+		try {
+			ch = ConnectionHolder.getInstance();
+			con = ch.getConnection();
+			users = DBHelper.executeSelect(con, SqlMapper.FetchStudentIdForValidation,paramMapper, SqlMapper.STUDENT_MAPPER);
+
+		} catch (DBConnectionException e) {
+			throw new DAOAppException(e);
+		} catch (DBFWException e) {
+			throw new DAOAppException(e);
+		}
+
+		return (users != null && users.size() > 0);
+
+	}
+
 }
 

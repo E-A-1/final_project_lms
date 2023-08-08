@@ -40,15 +40,15 @@
 	min-width: 400px;
 }
 
-.label_style {
-	font-size: 16px;
-	font-family: sans-serif;
-}
-
+/* .label_style { */
+/* 	font-size: 16px; */
+/* 	font-family: sans-serif; */
+/* } */
 body {
 	margin: 0px;
 	padding: 0
 }
+
 .header_button {
 	padding: 2px 5px;
 	background-color: white;
@@ -56,36 +56,79 @@ body {
 	font-family: "Times New Roman";
 	font-weight: bold;
 }
+
 .header_style {
-  background-color: rgb(156, 39, 176);
-  height: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  font-size: medium;
-  padding: 0px 7px;
-  justify-content: space-between;
+	background-color: rgb(156, 39, 176);
+	height: 50px;
+	color: white;
+	display: flex;
+	align-items: center;
+	font-size: medium;
+	padding: 0px 7px;
+	justify-content: space-between;
 }
+
 a {
-  text-decoration: none;
-  font-family: monospace;
+	text-decoration: none;
+	font-family: monospace;
 }
 </style>
+<script type="text/javascript">
+	function validateBook() {
+		var numberPattern = /^[0-9]+$/;
 
+		if (document.querySelector('input[name="bookname"]').value.length > 30) {
+			document.getElementById("vText").innerHTML = "book length name should be less than 30 ";
+			return false;
+		}
+		if (document.querySelector('input[name="isbn"]').value.length > 13) {
+			document.getElementById("vText").innerHTML = "isbn length name should be less than 13 digits ";
+			return false;
+		}
+
+		if (document.querySelector('input[name="author"]').value.length < 3) {
+			document.getElementById("vText").innerHTML = "author name length should be greater than 2 ";
+			return false;
+		}
+
+		if (document.querySelector('input[name="publisher"]').value.length < 3) {
+			document.getElementById("vText").innerHTML = "publisher name length should be greater than 2 ";
+			return false;
+		}
+
+		if (!numberPattern
+				.test(document.querySelector('input[name="price"]').value)) {
+			document.getElementById("vText").innerHTML = "only numbers are allowed in price ";
+			return false;
+		}
+
+		if (!numberPattern.test(document
+				.querySelector('input[name="quantity"]').value.length)) {
+			document.getElementById("vText").innerHTML = "only numbers are allowed in quantity ";
+			return false;
+		}
+
+		if (document.querySelector('input[name="category"]').value.length < 3) {
+			document.getElementById("vText").innerHTML = "category name length should be greater than 2 ";
+			return false;
+		}
+
+		return true;
+	}
+</script>
 <body class="reg_form">
 	<header class="header_style"> <span>
 		<h3>
 			LIBRARY MANAGEMENT SYSTEM <span style="padding: 0 15px;"><a
 				href="..\Pages\adminhome.jsp" class="header_button"> Home</a>
 		</h3>
-	</span> <span style="padding: 0 15px;"><a
-		href="..\Pages\index.jsp" class="header_button"> Sign Out</a> </span>
-	</header>
+	</span> <span style="padding: 0 15px;"><a href="..\Pages\index.jsp"
+		class="header_button"> Sign Out</a> </span> </header>
 
 	<div
 		style="width: 100%; display: flex; justify-content: center; align-items: center;">
 		<div class="card_style" style="z-index: 2; margin: 20px;">
-			<form name="Registration" action="RegisterBook.do">
+			<form name="Registration" action="RegisterBook.do" onsubmit="return(validateBook())">
 				<div
 					style="padding-bottom: 20px; font-weight: bold; font-size: 25px"
 					class="center_align">Add new book</div>
@@ -123,6 +166,9 @@ a {
 				</div>
 				<div>
 					<br />
+					 <font color='red'>
+						<div id="vText"></div>
+					</font>
 					<div class="center_align">
 						<button type="submit"
 							style="width: 100%; background-color: rgb(156, 39, 176); color: white; padding: 10px; border: 0px;">

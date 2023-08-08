@@ -21,9 +21,8 @@ public class StudentLogin implements HttpRequestHandler {
 
 	public static Logger log = Logger.getLogger(StudentLogin.class);
 
-	public void handle(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
-	{
-		PrintWriter out = response.getWriter();
+	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		int studentid = Integer.parseInt(request.getParameter("student_id"));
 		String password = request.getParameter("password");
 		int flag = -1;
@@ -42,32 +41,28 @@ public class StudentLogin implements HttpRequestHandler {
 			}
 			log.info("Flag in login " + flag);
 			if (flag == 0) {
-				
+
 				HttpSession session = request.getSession();
 
-		        // Set the userId in the HttpSession
-		        session.setAttribute("userId", student.get(0).getStudentId());
-				
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("StudentHome.jsp");
+				// Set the userId in the HttpSession
+				session.setAttribute("userId", student.get(0).getStudentId());
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("StudentHome.jsp");
 				request.setAttribute("Name", studentid);
 				dispatcher.forward(request, response);
 
 			} else {
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("StudentLogin.jsp");
-				request.setAttribute("Err",
-						"username are password is incorrect");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("StudentLogin.jsp");
+				request.setAttribute("Err", "username are password is incorrect");
 				dispatcher.forward(request, response);
 			}
 
 		} catch (Exception e) {
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
 			request.setAttribute("Err", e.getMessage());
 			dispatcher.forward(request, response);
 		}
 
-		}
-
 	}
+
+}

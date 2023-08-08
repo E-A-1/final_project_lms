@@ -9,9 +9,9 @@ public class Student {
 	private String studentName;
 	private String password;
 	private String email;
-	private int contactNumber;
+	private long contactNumber;
 
-	public Student(int studentId, String studentName, String password, String email, int contactNumber) {
+	public Student(int studentId, String studentName, String password, String email, long contactNumber) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;
@@ -52,11 +52,11 @@ public class Student {
 		this.email = email;
 	}
 
-	public int getContactNumber() {
+	public long getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(int contactNumber) {
+	public void setContactNumber(long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 

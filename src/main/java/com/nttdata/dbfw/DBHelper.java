@@ -18,10 +18,10 @@ public final class DBHelper {
 	public static List executeSelect(Connection conn, final String sqlStmt,
 			ResultMapper outMap) throws DBFWException {
 		List resultList = new ArrayList();
-		Statement stmt = null;
+		Statement stmt = null;//statement is used to execute static sql query
 		ResultSet rs = null;
 		try {
-			stmt = conn.createStatement();
+			stmt = conn.createStatement();//creating statment using connection obj 
 			rs = stmt.executeQuery(sqlStmt);
 			while (rs.next()) {
 				Object obj = outMap.mapRows(rs);
@@ -78,12 +78,12 @@ public final class DBHelper {
 	public static int executeUpdate(Connection con, String sqlStmt,
 			ParamMapper inMapper) throws DBFWException {
 		PreparedStatement pStmt = null;
-		int res = -1;
+		int res = 0;
 
 		try {
 			pStmt = con.prepareStatement(sqlStmt);
 			inMapper.mapParams(pStmt);
-			res = pStmt.executeUpdate();
+			res = pStmt.executeUpdate();//it will return 1 if inserted else 0
 
 		} catch (SQLException e) {
 

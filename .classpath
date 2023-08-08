@@ -27,5 +27,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/261174/Desktop/WEB_MVC_ravi/newWebJars/servlet-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/261174/Desktop/WEB_MVC_ravi/newWebJars/standard-1.1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/261174/Desktop/WEB_MVC_ravi/mysql-connector-java-8.0.11 (1) (1).jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/261174/Downloads/junit-4.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

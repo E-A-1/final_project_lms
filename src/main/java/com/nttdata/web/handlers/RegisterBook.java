@@ -38,6 +38,7 @@ public class RegisterBook implements HttpRequestHandler {
 
 		int result;
 		try {
+			validateBookDetails(book);
 			result = dao.createNewBook(book);//returns 1
 
 			if (result == 1) {
@@ -54,11 +55,22 @@ public class RegisterBook implements HttpRequestHandler {
 				dispatcher.forward(request, response);
 			}
 
-		} catch (DAOAppException | DBConnectionException e) {
+		} catch (Exception e) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
 			request.setAttribute("Err", e.getMessage());
 			dispatcher.forward(request, response);
 		}
 	}
+	private void validateBookDetails(BookDetails book) throws Exception {
+		if (book.getBookName().length() > 30) {
+			throw new Exception("book length name should be less than 30 ");
+		}
+		if (Integer.toString(book.getIsbn()).length() > 13) {
+			throw new Exception("isbn length name should be less than 13 digits ");
+		}
+		if (book.getAuthor().length() > 30) {
+			throw new Exception("author name length should be greater than 2 ");
+		}
 
+	}
 }

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="extStylehome.css">
 
 <meta charset="ISO-8859-1" />
-<title>Sample Project</title>
+<title>Student Home</title>
 <style>
 .reg_form {
 	background-image:
@@ -61,7 +61,8 @@ body {
 				LIBRARY MANAGEMENT SYSTEM <span style="padding: 0 15px;">
 					
 			</h3>
-		</span> <span style="padding: 0 15px;"><a
+		</span> 
+		<span style="padding: 0 15px;"><a
 			href="..\Pages\index.jsp" class="header_button"> Sign Out</a>
 
 		</span>

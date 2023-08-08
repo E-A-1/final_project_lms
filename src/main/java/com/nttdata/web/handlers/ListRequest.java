@@ -67,7 +67,7 @@ public class ListRequest implements HttpRequestHandler {
 
 				else {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorStudent.jsp");
-					request.setAttribute("Err", "No Books To Returned");
+					request.setAttribute("Err", "No Books available To Returned");
 					dispatcher.forward(request, response);
 				}
 				

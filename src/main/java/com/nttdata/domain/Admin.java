@@ -10,9 +10,9 @@ public class Admin {
 	private String adminName;
 	private String password;
 	private String email;
-	private int contactNumber;
+	private long contactNumber;
 
-	public Admin(int adminId, String adminName, String password, String email, int contactNumber) {
+	public Admin(int adminId, String adminName, String password, String email, long contactNumber) {
 		super();
 		this.adminId = adminId;
 		this.adminName = adminName;
@@ -53,11 +53,11 @@ public class Admin {
 		this.email = email;
 	}
 
-	public int getContactNumber() {
+	public long getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(int contactNumber) {
+	public void setContactNumber(long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 

@@ -61,9 +61,10 @@ JSP--java servlet page it is used to create web application -->
 	font-weight: bold;
 	color: #009879;
 }
+
 a {
-  text-decoration: none;
-  font-family: monospace;
+	text-decoration: none;
+	font-family: monospace;
 }
 
 .center_align {
@@ -76,35 +77,30 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
 .header_style {
-  background-color: rgb(156, 39, 176);
-  height: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  font-size: medium;
-  padding: 0px 7px;
-  justify-content: space-between;
+	background-color: rgb(156, 39, 176);
+	height: 50px;
+	color: white;
+	display: flex;
+	align-items: center;
+	font-size: medium;
+	padding: 0px 7px;
+	justify-content: space-between;
 }
 </style>
 </head>
-
-
 <body class="reg_form">
 	<header class="header_style">
 		<span>
 			<h3>
-				LIBRARY MANAGEMENT SYSTEM <span style="padding: 0 15px;"><a
+				LIBRARY MANAGEMENT SYSTEM <span style="padding: 0 15px;"> <a
 					href="..\Pages\StudentHome.jsp" class="header_button"> Home</a>
 			</h3>
-		</span> <span style="padding: 0 15px;"><a
-			href="..\Pages\index.jsp" class="header_button"> Sign Out</a>
-
-		</span>
+		</span> <span style="padding: 0 15px;"><a href="..\Pages\index.jsp"
+			class="header_button"> Sign Out</a> </span>
 	</header>
 	<center>
-
-
 		<TABLE class="styled-table">
 			<TR>
 				<TH>Book Id</TH>
@@ -131,12 +127,10 @@ body {
 				<td><%=book.getQuantity()%></td>
 				<td><%=book.getCategoryName()%></td>
 				<td><a href="RequestBook.do?bookId=<%=book.getBookId()%>">Request</a></td>
-
 			</tr>
 			<%
-				}
-				%>
-
+}
+%>
 		</TABLE>
 	</center>
 

@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@page import="java.util.List"%>
-<!-- script let tag used to write java code inside html  
-In JSP, java code can be written inside the jsp page using the scriptlet tag
-JSP--java servlet page it is used to create web application -->
 <%@page import="com.nttdata.domain.Student"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>

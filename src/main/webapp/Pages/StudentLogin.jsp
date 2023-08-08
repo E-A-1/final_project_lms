@@ -66,6 +66,28 @@ body {
 	margin: 0;
 }
 </style>
+<script type="text/javascript">
+function validateStudentLogin() {
+  var numberPattern = /^[0-9]+$/;
+
+  if (
+    !numberPattern.test(document.querySelector('input[name="student_id"]').value)
+  ) {
+    alert("Id should have only numbers");
+    return false;
+  }
+
+  if (
+    document.querySelector('input[name="password"]').value.length < 5 ||
+    document.querySelector('input[name="password"]').value.length > 10
+  ) {
+    alert("Password length should be greater than 5 and less than 10");
+    return false;
+  }
+
+  return true;
+}
+</script>
 <body class="reg_form">
 	<header class="header_style"> <span>
 		<h3>
@@ -78,7 +100,7 @@ body {
 	<div
 		style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px">
 		<div class="card_style" style="z-index: 2;">
-			<form action="StudentLogin.do">
+			<form action="StudentLogin.do"  onsubmit="return(validateStudentLogin())">
 				<div class="center_align">
 
 					<div colspan="2">

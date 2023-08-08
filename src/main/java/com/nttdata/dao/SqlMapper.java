@@ -42,8 +42,11 @@ public class SqlMapper {
 	public static final String INSERT_INTO_BOOK_RETURN = "insert into bookreturn values(?,?,?)";
 	public static final String Update_Book = "update bookdetails set price =? , quantity =? where ISBN=?";
 	public static final String GetReturnedRequestDetailsHistory = "select br.request_id,bd.book_id, bd.book_name,bd.category_name ,brn.return_date from bookreturn brn inner join BookRequest br on br.request_id = brn.request_id inner join bookdetails bd on bd.book_id = br.book_id where br.student_id =? ";
-
-	public static final ResultMapper MAP_USER = new ResultMapper() {
+	public static final String FetchAdminIdForValidation = "select * from admin where admin_id=?";
+	public static final String FetchStudentIdForValidation = "select * from student where student_id=?";
+	
+	public static final ResultMapper MAP_USER = new ResultMapper() 
+	{
 
 		@Override
 		public Object mapRows(ResultSet rs) throws SQLException {
@@ -55,6 +58,19 @@ public class SqlMapper {
 		}
 	};
 
+	public static final ResultMapper MAP_STUDENT = new ResultMapper() {
+
+		@Override
+		public Object mapRows(ResultSet rs) throws SQLException {
+			Student student = new Student();
+			student.setPassword(rs.getString("password"));
+			student.setStudentId(rs.getInt("studentId"));
+
+			return student;
+
+		}
+	};
+	
 	public static final ResultMapper ADMIN_MAPPER = new ResultMapper() {
 
 		public Object mapRows(ResultSet rs) throws SQLException {
@@ -63,7 +79,7 @@ public class SqlMapper {
 			String adminName = rs.getString(2);
 			String email = rs.getString(3);
 			String password = rs.getString(4);
-			int contactNumber = rs.getInt(5);
+			long contactNumber = rs.getLong(5);
 
 			Admin admin = new Admin(adminId, adminName, email, password, contactNumber);
 
@@ -82,7 +98,7 @@ public class SqlMapper {
 			String studentName = rs.getString(2);
 			String password = rs.getString(3);
 			String email = rs.getString(4);
-			int contactNumber = rs.getInt(5);
+			long contactNumber = rs.getLong(5);
 
 			Student s = new Student(studentId, studentName, password, email, contactNumber);
 
@@ -114,17 +130,7 @@ public class SqlMapper {
 		// mapRow
 
 	};
-	public static final ResultMapper MAP_STUDENT = new ResultMapper() {
-
-		@Override
-		public Object mapRows(ResultSet rs) throws SQLException {
-			Student student = new Student();
-			student.setPassword(rs.getString("password"));
-
-			return student;
-
-		}
-	};
+	
 
 //	public static final ResultMapper MAP_BOOK = new ResultMapper() {
 //

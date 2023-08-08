@@ -53,7 +53,7 @@ public class ConnectionHolder {
 		try {
 			initContext = new InitialContext();
 			Context envContext = (Context) initContext.lookup("java:/comp/env");
-			ds = (DataSource) envContext.lookup("jdbc/libraryManagement_princy1");
+			ds = (DataSource) envContext.lookup("jdbc/libraryManagement_princy1");//resource name
 		} catch (NamingException e) {
 			throw new DBConnectionException("Unable to get datasource", e);
 
@@ -61,3 +61,6 @@ public class ConnectionHolder {
 	}
 
 }
+//The context class is used to query or save data to the database. 
+//It is also used to configure domain classes, database related mappings, 
+//change tracking settings, caching, transaction etc. 

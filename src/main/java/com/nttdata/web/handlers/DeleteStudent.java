@@ -35,7 +35,7 @@ public class DeleteStudent  implements HttpRequestHandler {
 					else {
 						System.out.println("not Deleted");
 						RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorAdmin.jsp");
-						request.setAttribute("Err", "error deleting book..");
+						request.setAttribute("Err", "error deleting student..");
 						dispatcher.forward(request, response);
 
 						
